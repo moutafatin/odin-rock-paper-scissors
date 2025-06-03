@@ -25,7 +25,7 @@
 .round-msg {
   text-align: center;
   font-size: 2rem;
-  padding: 2rem;
+  padding: 1rem;
 }
 
 .score {
@@ -33,4 +33,26 @@
   justify-content: space-around;
   font-size: 2rem;
   color: purple;
+}
+
+.reset-game {
+  margin-inline: auto;
+  display: block;
+  padding: 1rem 2rem;
+  background-color: #71c0bb;
+  border: none;
+  border-radius: 1rem;
+  font-weight: bold;
+  color: white;
+  cursor: pointer;
+  margin-block: 1rem;
+  transition: all 0.3s ease;
+}
+
+.reset-game:hover {
+  background-color: #71c0bb70;
+}
+
+.reset-game:active {
+  scale: 1.2;
 }
