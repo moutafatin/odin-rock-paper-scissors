@@ -28,10 +28,6 @@
   padding: 2rem;
 }
 
-.round-msg {
-  display: none;
-}
-
 .score {
   display: flex;
   justify-content: space-around;
