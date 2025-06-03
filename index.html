@@ -4,9 +4,32 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Rock Paper Scissors</title>
+    <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <h1>Rock Paper Scissors</h1>
+    <h1 class="title">Rock Paper Scissors</h1>
+
+    <div class="container">
+      <p class="round-msg"></p>
+      <p class="moves-left">
+        Moves left: <span class="moves-left-score">0</span>
+      </p>
+      <div class="score">
+        <p>You score: <span class="user-score">0</span></p>
+        <p>Computer score: <span class="computer-score">0</span></p>
+      </div>
+      <div class="game-container">
+        <button class="game-action rock" data-move-name="rock">
+          <img src="assets/rock.png" alt="Rock" />
+        </button>
+        <button class="game-action paper" data-move-name="paper">
+          <img src="assets/paper.png" alt="Rock" />
+        </button>
+        <button class="game-action rock" data-move-name="scissors">
+          <img src="assets/scissors.png" alt="Rock" />
+        </button>
+      </div>
+    </div>
     <script src="main.js"></script>
   </body>
 </html>

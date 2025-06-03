@@ -1,44 +1,36 @@
-"use strict";
+// "use strict";
 
-function getComputerChoice() {
-  const choices = ["rock", "paper", "scissors"];
-  return choices[Math.floor(Math.random() * 3)];
+function getComputerMove() {
+  const moves = ["rock", "paper", "scissors"];
+  return moves[Math.floor(Math.random() * 3)];
 }
 
-function getUserChoice() {
-  return userChoice;
-}
+const gameAction = document.querySelectorAll(".game-action");
+gameAction.forEach((action) => {
+  action.addEventListener("click", (e) => {
+    const userMove = e.currentTarget.dataset.moveName;
+    const computerMove = getComputerMove();
 
-function showResult(userChoice, computerChoice, result) {
-  alert(
-    `You picked '${userChoice}' and the computer '${computerChoice}'. ${result}'`
-  );
-}
+    playRound(userMove, computerMove);
+  });
+});
 
-let userScore = 0;
-let computerScore = 0;
-
-while (true) {
-  const computerChoice = getComputerChoice();
-  const userChoice = prompt(
-    `Welcome to Rock Paper Scissors game.\n\nCurrent score ~ You: ${userScore}\nComputer: ${computerScore}  \n\nSelect your weapon. Type 'Rock' 'Paper' 'Scissors' or 'Stop' to stop the game loop: `
-  ).toLowerCase();
-
-  if (userChoice == "stop") {
-    break;
-  }
-
-  if (userChoice === computerChoice) {
-    showResult(userChoice, computerChoice, "A tie.");
+function playRound(userMove, computerMove) {
+  const userScore = document.querySelector(".user-score");
+  const computerScore = document.querySelector(".computer-score");
+  const roundMessage = document.querySelector(".round-msg");
+  roundMessage.style.display = "block";
+  if (userMove === computerMove) {
+    roundMessage.textContent = `A tie`;
   } else if (
-    (userChoice === "paper" && computerChoice == "rock") ||
-    (userChoice === "scissors" && computerChoice === "paper") ||
-    (userChoice === "rock" && computerChoice === "scissors")
+    (userMove === "paper" && computerMove == "rock") ||
+    (userMove === "scissors" && computerMove === "paper") ||
+    (userMove === "rock" && computerMove === "scissors")
   ) {
-    showResult(userChoice, computerChoice, "You win.");
-    userScore++;
+    roundMessage.textContent = `You picked ${userMove} and the computer ${computerMove}. You win`;
+    userScore.textContent = parseInt(userScore.textContent) + 1;
   } else {
-    showResult(userChoice, computerChoice, "You lose.");
-    computerScore++;
+    roundMessage.textContent = `You picked ${userMove} and the computer ${computerMove}. You lose`;
+    computerScore.textContent = parseInt(computerScore.textContent) + 1;
   }
 }
